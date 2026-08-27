@@ -1,4 +1,5 @@
 <Solution>
-  <Project Path="AssignmentProj/Ex1.csproj" />
+  <Project Path="Ex1/Ex1.csproj" />
   <Project Path="Ex2/Ex2.csproj" />
+  <Project Path="Ex3/Ex3.csproj" Id="2ec88eb3-f3ff-44be-89bb-eb95d88635f3" />
 </Solution>

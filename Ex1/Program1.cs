@@ -1,9 +1,8 @@
-﻿using System.Text;
-internal class Program1
+﻿internal class Program1
 {
-    static void Main()
+    private static void Main()
     {
-        Console.OutputEncoding = Encoding.UTF8;
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.WriteLine("Bài 1: Tính Tiền Điện Sinh Hoạt Gia Đình Theo Bậc Thang (EVN)\n---Input---");
         Console.Write("Nhập chỉ số điện cũ (kWh): ");
         decimal chiSoDienCu = decimal.Parse(Console.ReadLine());
@@ -51,5 +50,8 @@ internal class Program1
             }
         }
         Console.WriteLine($"Tiền điện chưa thuế: {tienDienChuaThue} Vnđ ");
+        decimal thueVAT = tienDienChuaThue * 0.08m;
+        Console.WriteLine($"Tiền thuế VAT: {thueVAT} Vnđ ");
+        Console.WriteLine($"Tổng thanh toán: {tienDienChuaThue + thueVAT} Vnđ ");
     }
 }
