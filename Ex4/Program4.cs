@@ -7,6 +7,7 @@
         Console.WriteLine("---Input---");
         Console.Write("Nhập ngày sinh (dd/mm/yyyy): ");
         string BirthdayInput = Console.ReadLine();
+        Console.WriteLine("---Output---");
         bool isBirthdayValid = DateTime.TryParseExact(BirthdayInput, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime birthday);
         if (isBirthdayValid == true)
         {
