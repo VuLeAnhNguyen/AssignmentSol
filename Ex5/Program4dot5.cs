@@ -17,25 +17,31 @@
             Console.WriteLine($"Tuổi hiện tại: {age} tuổi");
             int daysLived = (DateTime.Today - birthday).Days;
             Console.WriteLine($"Bạn đã sống tổng cộng: {daysLived} ngày");
-            DateTime nextBirthday = new DateTime(DateTime.Today.Year, birthday.Month, birthday.Day);
+            // 29/02 ahh problem
+            //===========================================================================================
             if (birthday.Day == 29 && birthday.Month == 2)
             {
-                bool isNextBirthdayYearLeap = DateTime.IsLeapYear(nextBirthday.Year);
-                while (isNextBirthdayYearLeap == false)
+                DateTime LeapBirthdayYear = new DateTime(DateTime.Today.Year, 1, 1);
+                while (!DateTime.IsLeapYear(LeapBirthdayYear.Year))
                 {
-                    nextBirthday.AddYears(1);
+                    LeapBirthdayYear = LeapBirthdayYear.AddYears(1);
                 }
             }
+            DateTime nextBirthday = new DateTime(LeapBirthdayYear.Year, birthday.Month, birthday.Day);        
+            
             int daysUntilNextBirthday;
-            if (isBirthdayPassed == false)
+            if (!isBirthdayPassed)
             {
                 daysUntilNextBirthday = (nextBirthday - DateTime.Today).Days;
             }
             else
             {
-                nextBirthday = nextBirthday.AddYears(1);
+
+                if ( !(birthday.Day == 29 && birthday.Month == 2 && isBirthdayPassed)  )
+                { nextBirthday = nextBirthday.AddYears(1); }
                 daysUntilNextBirthday = (nextBirthday - DateTime.Today).Days;
             }
+            //=============================================================================================
             Console.WriteLine($"Sinh nhật tiếp theo còn {daysUntilNextBirthday:N0} ngày");
         }
         else

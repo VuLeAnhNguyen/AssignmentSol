@@ -2,6 +2,7 @@
   <Project Path="Ex1/Ex1.csproj" />
   <Project Path="Ex2/Ex2.csproj" />
   <Project Path="Ex3/Ex3.csproj" Id="2ec88eb3-f3ff-44be-89bb-eb95d88635f3" />
+  <Project Path="Ex4.3/Ex4.3.csproj" Id="62cc3f2c-6126-4664-8166-349673d55ead" />
   <Project Path="Ex4/Ex4.csproj" Id="a5733086-a2c7-4f60-9a55-ab41e761021f" />
   <Project Path="Ex5/Ex4.5.csproj" Id="50ec3c8a-02ce-41e3-8354-2a348f525f86" />
 </Solution>
