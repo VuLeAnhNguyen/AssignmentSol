@@ -2,14 +2,14 @@
 {
     private static void Main(string[] args)
     {
-        Console.OutputEncoding=System.Text.Encoding.UTF8;
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.WriteLine("Bài 4: Tính Tuổi Chính Xác & Đếm Ngược Ngày Sinh Nhật ");
         Console.WriteLine("---Input---");
         Console.Write("Nhập ngày sinh (dd/mm/yyyy): ");
         string birthdayInput = Console.ReadLine();
         DateTime Birthday;
         // InputValidCheck
-        for (int i = 1; (!(DateTime.TryParseExact(birthdayInput, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out Birthday)) || Birthday > DateTime.Today) && i<7; i++)
+        for (int i = 1; (!(DateTime.TryParseExact(birthdayInput, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out Birthday)) || Birthday > DateTime.Today) && i < 7; i++)
         {
             if (i == 6)
             {
@@ -21,7 +21,7 @@
                 Console.Write(" Ngày sinh không thể lớn hơn ngày hiện tại, vui lòng nhập lại: ");
             }
             else
-                Console.Write(" Nhập sai định dạng, hãy nhập đúng định dạng dd/mm/yyyy: "); 
+                Console.Write(" Nhập sai định dạng, hãy nhập đúng định dạng dd/mm/yyyy: ");
             birthdayInput = Console.ReadLine();
 
         }
@@ -59,14 +59,17 @@
 
         }
         Console.WriteLine($"Tuổi hiện tại: {Age} tuổi");
+
+        //DaysLivedCalculation
         TimeSpan timeLived = DateTime.Today - Birthday;
         int daysLived = timeLived.Days;
         Console.WriteLine($"Bạn đã sống tổng cộng: {daysLived} ngày");
+
         // NextBirthdayCalculation
         int daysUntilNextBirthday;
         if (!(Birthday.Month == 2 && Birthday.Day == 29)) // Check if birthday is not 29/02
         {
- 
+
             if (isBirthdayPassed)
             {
                 daysUntilNextBirthday = (new DateTime(DateTime.Today.Year + 1, Birthday.Month, Birthday.Day) - DateTime.Today).Days;
@@ -83,12 +86,12 @@
             {
                 daysUntilNextBirthday = (new DateTime(DateTime.Today.Year, 2, 29) - DateTime.Today).Days;
             }
-            else 
+            else
             {
                 DateTime BirthdayLeapYear = DateTime.Today;
-                while ( !(DateTime.IsLeapYear(BirthdayLeapYear.Year) ) || DateTime.IsLeapYear(DateTime.Today.Year) && isBirthdayPassed )
+                while (!(DateTime.IsLeapYear(BirthdayLeapYear.Year)) || DateTime.IsLeapYear(BirthdayLeapYear.Year) && isBirthdayPassed)
                 {
-                 BirthdayLeapYear = BirthdayLeapYear.AddYears(1);
+                    BirthdayLeapYear = BirthdayLeapYear.AddYears(1);
 
                 }
                 daysUntilNextBirthday = (new DateTime(BirthdayLeapYear.Year, 2, 29) - DateTime.Today).Days;
