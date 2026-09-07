@@ -23,7 +23,6 @@
             else
                 Console.Write(" Nhập sai định dạng, hãy nhập đúng định dạng dd/mm/yyyy: ");
             birthdayInput = Console.ReadLine();
-
         }
 
         Console.WriteLine("---Output---");
@@ -101,4 +100,4 @@
 
 
     }
-}
+}//check
