@@ -1,11 +1,20 @@
 <Solution>
-  <Project Path="Ex 7/Ex7!.csproj" Id="ce640791-f5e6-4b99-a969-e676daa2dc2b" />
-  <Project Path="Ex1/Ex1.csproj" />
-  <Project Path="Ex2/Ex2!.csproj" />
-  <Project Path="Ex3/Ex3.csproj" Id="2ec88eb3-f3ff-44be-89bb-eb95d88635f3" />
-  <Project Path="Ex4/Ex4!.csproj" Id="a5733086-a2c7-4f60-9a55-ab41e761021f" />
-  <Project Path="Ex5/Ex5!.csproj" Id="04d4155f-5afb-4045-8f88-0d223d1e1c32" />
-  <Project Path="Ex6/Ex6!.csproj" Id="cb11dd50-a418-45c0-8f89-cf2280c956a0" />
-  <Project Path="Ex8/Ex8!.csproj" Id="e6341243-7e9f-4d72-9150-fc650f9a9cff" />
-  <Project Path="Ex9/Ex9.csproj" Id="f3ac3594-e6aa-452f-bc6c-0899cacf38fb" />
+  <Folder Name="/Exercise #3/">
+    <Project Path="Ex 7/Ex7!.csproj" Id="ce640791-f5e6-4b99-a969-e676daa2dc2b" />
+    <Project Path="Ex1/Ex1.csproj" />
+    <Project Path="Ex2/Ex2!.csproj" />
+    <Project Path="Ex3/Ex3.csproj" Id="2ec88eb3-f3ff-44be-89bb-eb95d88635f3" />
+    <Project Path="Ex4/Ex4!.csproj" Id="a5733086-a2c7-4f60-9a55-ab41e761021f" />
+    <Project Path="Ex5/Ex5!.csproj" Id="04d4155f-5afb-4045-8f88-0d223d1e1c32" />
+    <Project Path="Ex6/Ex6!.csproj" Id="cb11dd50-a418-45c0-8f89-cf2280c956a0" />
+    <Project Path="Ex8/Ex8!.csproj" Id="e6341243-7e9f-4d72-9150-fc650f9a9cff" />
+    <Project Path="Ex9/Ex9.csproj" Id="f3ac3594-e6aa-452f-bc6c-0899cacf38fb" />
+  </Folder>
+  <Folder Name="/Exercise #4/">
+    <Project Path="3.1/4.1.csproj" Id="a8b1708d-ea53-4c9a-b5b1-9de79793f9b1" />
+    <Project Path="4.2/4.2.csproj" Id="9c32f1bb-f17f-4d66-b8e4-015ce3321383" />
+    <Project Path="4.3/4.3.csproj" Id="e95ad07f-1a0a-45d6-b39a-4a4e68e21da5" />
+    <Project Path="4.4/4.4.csproj" Id="274a406a-491a-4a76-909a-1c9fbf6eaa3b" />
+    <Project Path="4.5/4.5.csproj" Id="afd85084-3aef-4451-92aa-26df02e814f7" />
+  </Folder>
 </Solution>
