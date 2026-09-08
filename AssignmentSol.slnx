@@ -6,5 +6,6 @@
   <Project Path="Ex4/Ex4!.csproj" Id="a5733086-a2c7-4f60-9a55-ab41e761021f" />
   <Project Path="Ex5/Ex5!.csproj" Id="04d4155f-5afb-4045-8f88-0d223d1e1c32" />
   <Project Path="Ex6/Ex6!.csproj" Id="cb11dd50-a418-45c0-8f89-cf2280c956a0" />
-  <Project Path="Ex8/Ex8.csproj" Id="e6341243-7e9f-4d72-9150-fc650f9a9cff" />
+  <Project Path="Ex8/Ex8!.csproj" Id="e6341243-7e9f-4d72-9150-fc650f9a9cff" />
+  <Project Path="Ex9/Ex9.csproj" Id="f3ac3594-e6aa-452f-bc6c-0899cacf38fb" />
 </Solution>
