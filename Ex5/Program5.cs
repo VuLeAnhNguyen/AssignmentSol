@@ -1,4 +1,4 @@
-﻿internal class Program
+﻿internal class Program5
 {
     enum LetterGrade
     {
