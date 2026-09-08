@@ -31,6 +31,6 @@ internal class Program2
         }
         double bmiMin = 18.5 * Pow(chieuCao, 2);
         double bmiMax = 22.9 * Pow(chieuCao, 2);
-        Console.WriteLine($"Khuyên dùng: {Round(bmiMin, 2)}kg đến {Round(bmiMax, 2)}kg.");
+        Console.WriteLine($"Khuyên dùng: {Round(bmiMin, 2)}kg đến {Round(bmiMax, 2)}kg."); // round .5 trap
     }
 }

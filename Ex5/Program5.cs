@@ -13,6 +13,7 @@
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         int invalidCount = 0;
+        Console.WriteLine("Bài 5: Quản Lý Điểm Học Phần & Quy Đổi Thang Điểm GPA (4.0)");
         Console.WriteLine("---Input---");
         Console.WriteLine("- Môn C# -");
         Console.Write("Số Tín chỉ: "); int creditCSharp = int.Parse(Console.ReadLine());

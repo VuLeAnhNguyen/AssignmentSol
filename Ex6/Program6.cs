@@ -3,9 +3,9 @@
     private static void Main(string[] args)
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
-
+        Console.WriteLine("Bài 6: Chuẩn Hóa Họ Tên Người Dùng & Tự Động Tạo Email/Username");
         Console.WriteLine("---Input---");
-        Console.Write($"Nhập họ tên thô: "); string fullNameInput = Console.ReadLine(); // assume input is 100% correct,=3 length for now
+        Console.Write($"Nhập họ tên thô: "); string fullNameInput = Console.ReadLine(); // assume input is 100% correct,=3 length for now, still >2space error
         // process
         string[] separatedLowerCaseName = fullNameInput.ToLower().Split();
         string ho, dem, ten;
