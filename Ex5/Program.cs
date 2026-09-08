@@ -67,4 +67,4 @@
         Console.WriteLine($"Điểm GPA: {GPA}");
         Console.WriteLine($" Xếp loại học lực: {rank}");
     }
-}// wrong GPA calculation, fix later
+}// wrong GPA calculation, fix later, doesn't meet exercises requirements (enum)
