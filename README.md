@@ -1,2 +1,2 @@
 # AssignmentSol
-"Set As Startup Project" để chạy bài muốn chạy
+tìm " 0.Runner.cs " để chọn bài tập muốn chạy
