@@ -4,7 +4,7 @@
 */
 internal class B2
 {
-    public static void Main()
+    public static void Run()
     {
         int y = -5;
         while (y>=-5 && y<=5)

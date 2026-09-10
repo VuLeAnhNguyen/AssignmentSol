@@ -5,7 +5,7 @@ miles per hour (miles/h).
 */
 internal class B3
 {
-    public static void Main()
+    public static void Run()
     {
         Console.Write("Distance (Km): "); double distance = double.Parse(Console.ReadLine());
         Console.Write("Time (hh:mm:ss): "); TimeSpan time = TimeSpan.Parse(Console.ReadLine());

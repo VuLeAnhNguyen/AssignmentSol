@@ -2,7 +2,7 @@
 is a vowel, a digit, or any other symbol. */
 internal class B5
 {
-    public static void Main()
+    public static void Run()
     {
         Console.WriteLine("---Input---");
         Console.WriteLine("Character type input check: "); char input = char.Parse(Console.ReadLine());

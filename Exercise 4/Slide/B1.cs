@@ -5,7 +5,7 @@ operation.
 */
 internal class B1
 {
-    public static void Main()
+    public static void Run()
     {
         Console.WriteLine("---Input---");
         Console.Write("First number: "); decimal firstNum = decimal.Parse(Console.ReadLine());

@@ -2,7 +2,7 @@
 {
     static void Main()
     {
-        Console.OutputEncoding = Encoding.UTF8;
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.Write("Chọn bài tập: "); string choiceNum = Console.ReadLine();
         Console.WriteLine();
         switch (choiceNum)
