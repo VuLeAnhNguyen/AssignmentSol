@@ -1,6 +1,6 @@
 ﻿class Runner
 {
-    static void Main()
+    static void Main33()
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.Write("Chọn bài tập: "); string choiceNum = Console.ReadLine();
