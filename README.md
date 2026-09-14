@@ -1,2 +1,2 @@
 # AssignmentSol
-tìm và chạy " 0.Runner.cs " để chọn bài tập muốn chạy
+B1: "Set as start up project" để chọn bộ bài tập và chạy để mở "Runner" chọn bài tập sẽ chạy
