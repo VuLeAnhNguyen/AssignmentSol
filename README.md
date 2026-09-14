@@ -1,2 +1,2 @@
 # AssignmentSol
-tìm " 0.Runner.cs " để chọn bài tập muốn chạy
+tìm và chạy " 0.Runner.cs " để chọn bài tập muốn chạy
