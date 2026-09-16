@@ -1,7 +1,7 @@
 ﻿class asa
 {
 
-        public static void Main(string[] args)
+        public static void Msin(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("""
