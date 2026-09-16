@@ -1,4 +1,4 @@
-﻿class asa
+﻿class Sds
 {
 
         public static void Msin(string[] args)
