@@ -2,4 +2,5 @@
   <Project Path="Exercise 3/Exercise 3.csproj" />
   <Project Path="Exercise 4/Exercise 4.csproj" />
   <Project Path="Exercise 5/Exercise 5.csproj" />
+  <Project Path="TestPlace/TestPlace.csproj" Id="d38e1b09-70ba-4edb-9374-99f6e9c83487" />
 </Solution>
