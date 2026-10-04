@@ -1,27 +1,20 @@
-﻿string text = "dog is doctor";
+﻿string[] words = { "racecar", "talented", "deified", "tent", "tenet" };
 
-Console.WriteLine(ReverseWord(text));
-Console.WriteLine(ReverseSentence(text));
-string ReverseWord(string text)
+Console.WriteLine("Is it a palindrome?");
+foreach (string word in words)
 {
-    string result = "";
-
-    for (int i = text.Length-1; i >= 0; i--)
-    {
-        result += text[i];
-    }
-
-    return result;
+    Console.WriteLine($"{word}: {IsPalindrome(word)}");
 }
-string ReverseSentence(string text)
+
+bool IsPalindrome(string word)
 {
-    string result = "";
-
-    string[] words = text.Split(" ");
-    foreach (string word in words)
+    int midPoint = word.Length/2 +1;
+    for (int i=0; i <midPoint-1; i++)
     {
-        result += ReverseWord(word)+ " ";
+        if (word[i] != word[word.Length - 1 -i])
+        {
+            return false;
+        }
     }
-
-    return result.Trim();
+    return true;
 }
