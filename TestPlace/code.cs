@@ -10,11 +10,31 @@ then ipAddress is valid
 else ipAddress is invalid
 */
 Console.Write("Enter IP: ");
-string inputIPv4 = Console.ReadLine()??"";
+string ipv4Input = Console.ReadLine()??"";
+bool validLength = false;
+bool validZeroes = false;
+bool validRange = false;
+
+ValidateLength();
+ValidateZeroes();
+ValidateRange();
+
+if (validLength && validZeroes && validRange)
+{
+    Console.WriteLine($"ip is a valid IPv4 address");
+}
+else
+{
+    Console.WriteLine($"ip is an invalid IPv4 address");
+}
 
 
 
 
 
+void ValidateLength() 
+{
     
 }
+void ValidateZeroes() { }
+void ValidateRange() { }
