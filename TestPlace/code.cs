@@ -1,32 +1,29 @@
-﻿string[,] corporate =
-{
-    {"Robert", "Bavin"}, {"Simon", "Bright"},
-    {"Kim", "Sinclair"}, {"Aashrita", "Kamath"},
-    {"Sarah", "Delucchi"}, {"Sinan", "Ali"}
-};
+﻿double total = 0;
+double minimumSpend = 30.00;
 
-string[,] external =
-{
-    {"Vinnie", "Ashton"}, {"Cody", "Dysart"},
-    {"Shay", "Lawrence"}, {"Daren", "Valdes"}
-};
+double[] items = { 15.97, 3.50, 12.25, 22.99, 10.98 };
+double[] discounts = { 0.30, 0.00, 0.10, 0.20, 0.50 };
 
-string externalDomain = "hayworth.com";
-
-for (int i = 0; i < corporate.GetLength(0); i++)
+for (int i = 0; i < items.Length; i++)
 {
-    // display internal email addresses
-    DisplayEmail(i, corporate);
+    total += GetDiscountedPrice(i);
 }
 
-for (int i = 0; i < external.GetLength(0); i++)
+total -= TotalMeetsMinimum() ? 5.00 : 0.00;
+
+Console.WriteLine($"Total: ${FormatDecimal(total)}");
+
+double GetDiscountedPrice(int itemIndex)
 {
-    // display external email addresses
-    DisplayEmail(i, external, externalDomain);
+    return items[itemIndex] * (1 - discounts[itemIndex]);
 }
 
-void DisplayEmail(int i , string[,] corp, string domain = "contoso.com" )
+bool TotalMeetsMinimum()
 {
-    string email = (corp[i,0].Substring(0,2) + corp[i,1] ).ToLower() +"@"+ domain;
-    Console.WriteLine(email);
+    return total >= minimumSpend;
+}
+
+string FormatDecimal(double input)
+{
+    return input.ToString().Substring(0, 5);
 }
