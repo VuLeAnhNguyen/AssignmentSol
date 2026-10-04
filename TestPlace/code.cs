@@ -1,20 +1,31 @@
-﻿string[] words = { "racecar", "talented", "deified", "tent", "tenet" };
+﻿Random random = new Random();
+int coinFlip = random.Next(0, 100);
 
-Console.WriteLine("Is it a palindrome?");
-foreach (string word in words)
+int target = 60;
+int[] coins = new int[] { 5, 5, 5, 25, 25, 10, 5 };
+int[] result = TwoCoins(coins, target);
+if (result.Length == 0)
 {
-    Console.WriteLine($"{word}: {IsPalindrome(word)}");
+    Console.WriteLine("No two coins make change");
+}
+else
+{
+    Console.WriteLine($"Change found at positions {result[0]} and {result[1]}");
 }
 
-bool IsPalindrome(string word)
+int[] TwoCoins(int[] coins, int target)
 {
-    int midPoint = word.Length/2 +1;
-    for (int i=0; i <midPoint-1; i++)
+    for (int i=0; i < coins.Length-1; i++)
     {
-        if (word[i] != word[word.Length - 1 -i])
+        for (int j=i+1; j <coins.Length; j++)
         {
-            return false;
+            if (coins[i] + coins[j]==target)
+            {
+                return new int[] { i, j };
+            }
         }
+
     }
-    return true;
+
+    return new int[0];
 }
