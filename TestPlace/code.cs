@@ -1,40 +1,22 @@
-﻿/*
-if ipAddress consists of 4 numbers
-and
-if each ipAddress number has no leading zeroes
-and
-if each ipAddress number is in range 0 - 255
+﻿int[] array = { 1, 2, 3, 4, 5 };
 
-then ipAddress is valid
+PrintArray(array);
+Clear(array);
+PrintArray(array);
 
-else ipAddress is invalid
-*/
-Console.Write("Enter IP: ");
-string ipv4Input = Console.ReadLine()??"";
-bool validLength = false;
-bool validZeroes = false;
-bool validRange = false;
-
-ValidateLength();
-ValidateZeroes();
-ValidateRange();
-
-if (validLength && validZeroes && validRange)
+void PrintArray(int[] array)
 {
-    Console.WriteLine($"ip is a valid IPv4 address");
-}
-else
-{
-    Console.WriteLine($"ip is an invalid IPv4 address");
+    foreach (int a in array)
+    {
+        Console.Write($"{a} ");
+    }
+    Console.WriteLine();
 }
 
-
-
-
-
-void ValidateLength() 
+void Clear(int[] array)
 {
-    
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = 0;
+    }
 }
-void ValidateZeroes() { }
-void ValidateRange() { }
