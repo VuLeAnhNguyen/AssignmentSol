@@ -1,17 +1,27 @@
-﻿double usd = 23.73;
-int vnd = UsdToVnd(usd);
+﻿string text = "dog is doctor";
 
-Console.WriteLine($"${usd} USD = ${vnd} VND");
-Console.WriteLine($"${vnd} VND = ${VndToUsd(vnd)} USD");
-
-int UsdToVnd(double usd)
+Console.WriteLine(ReverseWord(text));
+Console.WriteLine(ReverseSentence(text));
+string ReverseWord(string text)
 {
-    int rate = 23500;
-    return (int)(rate * usd);
+    string result = "";
+
+    for (int i = text.Length-1; i >= 0; i--)
+    {
+        result += text[i];
+    }
+
+    return result;
 }
-
-double VndToUsd(int vnd)
+string ReverseSentence(string text)
 {
-    double rate = 23500;
-    return vnd / rate;
+    string result = "";
+
+    string[] words = text.Split(" ");
+    foreach (string word in words)
+    {
+        result += ReverseWord(word)+ " ";
+    }
+
+    return result.Trim();
 }
