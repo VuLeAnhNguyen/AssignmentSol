@@ -1,55 +1,54 @@
-﻿Random random = new Random();
-
-Console.WriteLine("Would you like to play? (Y/N)");
-if (ShouldPlay())
+﻿string[] pettingZoo =
 {
-    PlayGame();
-}
+    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese",
+    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws",
+    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
+};
 
-void PlayGame()
+
+PlanSchoolVisit("School A");
+PlanSchoolVisit("School B", 3);
+PlanSchoolVisit("School C", 2);
+void RandomizeAnimals()
 {
-    var play = true;
-
-    while (play)
+    Random rand = new();
+    for (int i = 0; i < pettingZoo.Length; i++)
     {
-        var target = random.Next(1,7);
-        Console.WriteLine($"Roll a number greater than {target} to win!");
-        var roll = random.Next(1, 7);
-        Console.WriteLine($"You rolled a {roll}");
-        Console.WriteLine( WinOrLose(roll,target) );
-        Console.WriteLine("\nPlay again? (Y/N)");
-
-        play = ShouldPlay();
+        int r = rand.Next(i, pettingZoo.Length);
+        string temp = pettingZoo[i];
+        pettingZoo[i] = pettingZoo[r];
+        pettingZoo[r] = temp;
     }
 }
-
-////
-bool ShouldPlay()
+string[,] AssignGroup(int groups =6)
 {
-    string? input = Console.ReadLine();
-    input = input?.ToLower();
-    if (input =="y")
+    string[,] result = new string[groups, pettingZoo.Length / groups];
+    int s = 0;
+    for (int i = 0; i < groups; i++)
     {
-        return true;
+        for (int j=0; j<pettingZoo.Length/groups; j++)
+        {
+            result[i, j] = pettingZoo[s++];
+        }
     }
-    else if (input =="n")
-    {
-        return false;
-    }
-    else
-    {
-        Console.WriteLine("Invalid, try again");
-    }
-    return ShouldPlay();
+    return result;
 }
-string WinOrLose(int roll, int target)
+void PrintGroup(string[,] group)
 {
-    if (roll < target)
+    for (int i = 0; i < group.GetLength(0); i++)
     {
-        return "U lose!";
+        Console.Write($"Group {i + 1}: ");
+        for (int j = 0; j < group.GetLength(1); j++)
+        {
+            Console.Write($"{group[i, j]}  ");
+        }
+        Console.WriteLine();
     }
-    else
-    {
-        return "U win!";
-    }
+}
+void PlanSchoolVisit(string schoolName, int groups = 6)
+{
+    RandomizeAnimals();
+    string[,] group = AssignGroup(groups);
+    Console.WriteLine(schoolName);
+    PrintGroup(group);
 }
