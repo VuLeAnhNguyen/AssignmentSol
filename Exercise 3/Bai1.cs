@@ -17,12 +17,22 @@ bằng chỉ số cũ.
 •   + Bậc 5: Cho toàn bộ kWh từ 301 kWh trở lên: 3.050 VNĐ/kWh 
 • Cộng thêm 8% Thuế Giá trị gia tăng (VAT). 
 • In hóa đơn chi tiết gồm: Số kWh tiêu thụ, Tiền điện chưa thuế, Tiền thuế VAT và Tổng tiền phải thanh toán 
+<<<<<<< HEAD
 (làm tròn đến hàng đơn vị decimal).
 */
 class Bai1
 {
     public static void Run()
     {
+=======
+(làm tròn đến hàng đơn vị decimal). 
+*/
+class bai1
+{
+    internal static void Bai1()
+    {
+
+>>>>>>> 9938f3eb2eada51ec58bb86f02180592360fdb88
         Console.Clear();
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.WriteLine("Bài 1: Tính Tiền Điện Sinh Hoạt Gia Đình Theo Bậc Thang (EVN)");
@@ -36,6 +46,7 @@ class Bai1
         decimal consumption = (newIndex - oldIndex);
         decimal cost = 0;
 
+<<<<<<< HEAD
         decimal b1 = 1.806m;
         decimal b2 = 1.866m;
         decimal b3 = 2.167m;
@@ -52,12 +63,29 @@ class Bai1
         { cost = (50 * b1) + (50 * b2) + (100 * b3) + (consumption - 200) * b4; }
         else
         { cost = (50 * b1) + (50 * b2) + (100 * b3) + (100 * b4) + (consumption - 300) * b5; }
+=======
+        if (consumption <= 50)
+        { cost = consumption * 1.806m; }
+        else if (consumption <= 100)
+        { cost = (50m * 1.806m) + (consumption - 50) * 1.866m; }
+        else if (consumption <= 200)
+        { cost = (50 * 1.806m) + (50 * 1.866m) + (consumption - 100) * 2.167m; }
+        else if (consumption <= 300)
+        { cost = (50 * 1.806m) + (50 * 1.866m) + (100 * 2.167m) + (consumption - 200) * 2.729m; }
+        else
+        { cost = (50 * 1.806m) + (50 * 1.866m) + (100 * 2.167m) + (100 * 2.729m) + (consumption - 300) * 3.050m; }
+>>>>>>> 9938f3eb2eada51ec58bb86f02180592360fdb88
 
         decimal vat = cost * 0.08m;
 
         Console.WriteLine($"Số kWh tiêu thụ {consumption} kWh");
+<<<<<<< HEAD
         Console.WriteLine($"Tiền điện chưa thuế {cost:N}k VND");
         Console.WriteLine($"Thuế: {vat:N}K VND");
+=======
+        Console.WriteLine($"Tiền điện chưa thuế {cost:N2}k VND");
+        Console.WriteLine($"Thuế: {vat}K VND");
+>>>>>>> 9938f3eb2eada51ec58bb86f02180592360fdb88
         Console.WriteLine($"Tổng tiền phải thanh toán {vat + cost:N}k VND");
     }
 }
