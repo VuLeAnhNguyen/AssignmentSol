@@ -19,9 +19,9 @@ bằng chỉ số cũ.
 • In hóa đơn chi tiết gồm: Số kWh tiêu thụ, Tiền điện chưa thuế, Tiền thuế VAT và Tổng tiền phải thanh toán 
 (làm tròn đến hàng đơn vị decimal).
 */
-class bai1
+class Bai1
 {
-    public static void Bai1()
+    public static void Run()
     {
         Console.Clear();
         Console.OutputEncoding = System.Text.Encoding.UTF8;

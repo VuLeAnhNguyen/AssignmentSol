@@ -3,7 +3,7 @@ class Runner
 {
     static void Main()
     {
-        //bai1.Bai1();
-        B1.Run();
+        //Bai1.Run();
+        Bai2.Run();
     }
 }
