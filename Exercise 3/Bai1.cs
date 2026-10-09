@@ -17,13 +17,12 @@ bằng chỉ số cũ.
 •   + Bậc 5: Cho toàn bộ kWh từ 301 kWh trở lên: 3.050 VNĐ/kWh 
 • Cộng thêm 8% Thuế Giá trị gia tăng (VAT). 
 • In hóa đơn chi tiết gồm: Số kWh tiêu thụ, Tiền điện chưa thuế, Tiền thuế VAT và Tổng tiền phải thanh toán 
-(làm tròn đến hàng đơn vị decimal). 
+(làm tròn đến hàng đơn vị decimal).
 */
 class bai1
 {
     public static void Bai1()
     {
-
         Console.Clear();
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.WriteLine("Bài 1: Tính Tiền Điện Sinh Hoạt Gia Đình Theo Bậc Thang (EVN)");
