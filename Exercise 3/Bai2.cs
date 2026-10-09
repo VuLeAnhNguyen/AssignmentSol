@@ -28,7 +28,6 @@ class Bai2
 
         double indexBMI = weight / (Math.Pow(height,2));
         string category = "";
-        double suggestMaxWeight, suggestMinWeight;
 
         if (indexBMI < 18.5)
         {
@@ -46,13 +45,13 @@ class Bai2
         {
             category = "Béo phì";
         }
-        
-        //suugest weigh block
 
-
-
+        double suggestMaxWeight = 18.5 * Math.Pow(height, 2),
+               suggestMinWeight = 22.9 * Math.Pow(height, 2);
 
         Console.WriteLine($"Chỉ số BMI: {indexBMI:N}");
+        Console.WriteLine($"Phân loại sức khỏe: {category}");
+        Console.WriteLine($"Lời khuyên: Cân nặng lí tưởng của bạn nên từ {suggestMinWeight:N} kg đến {suggestMaxWeight:N} kg");
     }
 }
 
