@@ -20,6 +20,7 @@ class Bai2
 {
     public static void Run()
     {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.Clear();
         Console.WriteLine("Bài 2: Hệ Thống Theo Dõi Chỉ Số BMI & Đánh Giá Tình Trạng Sức Khỏe");
 
@@ -46,8 +47,8 @@ class Bai2
             category = "Béo phì";
         }
 
-        double suggestMaxWeight = 18.5 * Math.Pow(height, 2),
-               suggestMinWeight = 22.9 * Math.Pow(height, 2);
+        double suggestMinWeight = 18.5 * Math.Pow(height, 2),
+               suggestMaxWeight = 22.9 * Math.Pow(height, 2);
 
         Console.WriteLine($"Chỉ số BMI: {indexBMI:N}");
         Console.WriteLine($"Phân loại sức khỏe: {category}");
