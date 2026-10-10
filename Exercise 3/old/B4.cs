@@ -4,7 +4,9 @@
     {
         public static void Run()
         {
+            Console.Clear();
             Console.OutputEncoding = System.Text.Encoding.UTF8;
+
             Console.WriteLine("Bài 4: Tính Tuổi Chính Xác & Đếm Ngược Ngày Sinh Nhật ");
             Console.WriteLine("---Input---");
             Console.Write("Nhập ngày sinh (dd/mm/yyyy): ");
