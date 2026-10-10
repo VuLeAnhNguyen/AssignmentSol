@@ -26,6 +26,7 @@ class Bai1
     {
         Console.Clear();
         Console.OutputEncoding = System.Text.Encoding.UTF8;
+
         Console.WriteLine("Bài 1: Tính Tiền Điện Sinh Hoạt Gia Đình Theo Bậc Thang (EVN)");
         Console.WriteLine("Nhập số điện cũ  (kWh): "); int oldIndex = int.Parse(Console.ReadLine());
         Console.WriteLine("Nhập số điện mới (kWh): "); int newIndex = int.Parse(Console.ReadLine());

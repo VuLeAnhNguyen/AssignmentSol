@@ -26,6 +26,8 @@ class Bai3
     public static void Run()
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.Clear();
+
         Console.WriteLine("Bài 3: Ứng Dụng Quy Đổi Tiền Tệ Ngoại Tệ Đa Tỷ Giá Ngân Hàng");
         Console.WriteLine();
         Console.WriteLine($"1 {ExchangeRate.USD} = {(int)ExchangeRate.USD:N0} VND");

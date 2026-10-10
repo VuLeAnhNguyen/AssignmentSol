@@ -22,6 +22,7 @@ class Bai2
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.Clear();
+
         Console.WriteLine("Bài 2: Hệ Thống Theo Dõi Chỉ Số BMI & Đánh Giá Tình Trạng Sức Khỏe");
 
         Console.WriteLine("Nhập chiều cao (mét): "); double height = double.Parse(Console.ReadLine());
