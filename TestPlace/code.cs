@@ -1,47 +1,45 @@
 ﻿class Program
 {
-    public interface IHasScore
-    {
-        public int Score { get; set; }
-    }
-    public class Student : IHasScore
+    public interface IScorable
     {
         public string Name { get; set; }
-
         public int Score { get; set; }
-
-        public Student(string name, int score)
+    }
+    public class Student : IScorable
+    {
+        public int StudentId { get; set; }
+        public string Name { get; set; }
+        public int Score { get; set; }
+        public Student(int id, string name, int score)
         {
+            StudentId = id;
             Name = name;
             Score = score;
         }
     }
-    public class Player : IHasScore
+    public class Player : IScorable
     {
+        public int PlayerTag { get; set; }
         public string Name { get; set; }
         public int Score { get; set; }
-        public Player(string name, int score)
+        public Player(int id, string name, int score)
         {
+            PlayerTag = id;
             Name = name;
             Score = score;
         }
     }
-    public static bool IsFirstHigher<T>(T first, T second)
-        where T : IHasScore
+    public class Scoreboard
     {
-        return first.Score > second.Score;
+        public static void PrintScore(IScorable item)
+        {
+            Console.WriteLine(item.Name +": "+ item.Score);
+        }
+        public static bool IsFirstHigher<T>(T item1, T item2) where T : IScorable
+        {
+            return item1.Score > item2.Score;
+        }
     }
 
-    static void Main()
-    {
-        Student s1 = new Student("An", 85);
-        Student s2 = new Student("Binh", 72);
 
-        Player p1 = new Player("Kai", 1200);
-        Player p2 = new Player("Mia", 1500);
-
-        Console.WriteLine(IsFirstHigher<Student>(s1,s2));
-        Console.WriteLine(IsFirstHigher<Player>(p1, p2));
-
-    }
 }
