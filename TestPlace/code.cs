@@ -31,32 +31,43 @@
     }
     public class Scoreboard<T> where T : IScorable
     {
-        public T Participant { get; }
+        public T[] Participant { get; }
 
-        public Scoreboard(T participant)
+        public Scoreboard(T[] participant)
         {
             Participant = participant;
         }
-
-        public void PrintScore()
+        //public void PrintScore()
+        //{
+        //    foreach (var item in Participant)
+        //    {
+        //        Console.WriteLine($"{item.Name}: {item.Score}");
+        //    }
+        //}
+        public void PrintAll()
         {
-            Console.WriteLine($"{Participant.Name}: {Participant.Score}");
+            foreach (var item in Participant)
+            {
+                Console.WriteLine($"{item.Name}: {item.Score}");
+            }
+            Console.WriteLine();
         }
     }
     static void Main()
     {
         Student s1 = new Student(101, "An", 93);
+        Student s2 = new Student(202, "Binh", 78);
 
         Player p1 = new Player ( 1, "Kai", 1200 );
+        Player p2 = new Player ( 2, "Mia", 1500 );
 
-        Scoreboard<Student> ss1 = new Scoreboard<Student> (s1);
-        Scoreboard<Player> pp1 = new Scoreboard<Player>(p1);
+        Scoreboard<Student> ss = new Scoreboard<Student>(new Student[] { s1, s2 });
+        Scoreboard<Player> pp  = new Scoreboard<Player> (new Player[] { p1, p2 });
 
-        ss1.PrintScore();
-        pp1.PrintScore();
+        s1.Score = 100;
 
-
-
+        ss.PrintAll();
+        pp.PrintAll();
     }
 
 
