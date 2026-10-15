@@ -29,16 +29,34 @@
             Score = score;
         }
     }
-    public class Scoreboard
+    public class Scoreboard<T> where T : IScorable
     {
-        public static void PrintScore(IScorable item)
+        public T Participant { get; }
+
+        public Scoreboard(T participant)
         {
-            Console.WriteLine(item.Name +": "+ item.Score);
+            Participant = participant;
         }
-        public static bool IsFirstHigher<T>(T item1, T item2) where T : IScorable
+
+        public void PrintScore()
         {
-            return item1.Score > item2.Score;
+            Console.WriteLine($"{Participant.Name}: {Participant.Score}");
         }
+    }
+    static void Main()
+    {
+        Student s1 = new Student(101, "An", 93);
+
+        Player p1 = new Player ( 1, "Kai", 1200 );
+
+        Scoreboard<Student> ss1 = new Scoreboard<Student> (s1);
+        Scoreboard<Player> pp1 = new Scoreboard<Player>(p1);
+
+        ss1.PrintScore();
+        pp1.PrintScore();
+
+
+
     }
 
 
