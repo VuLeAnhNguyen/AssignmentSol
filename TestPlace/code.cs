@@ -1,24 +1,25 @@
-﻿public class Solution
+﻿class Program
 {
-    public static int Main()
+    static void Main()
     {
-        int[] nums = { 1, 90, 14, 98, 12 };
-        int[] totals = new int[nums.Length];
-        string[] str = new string[nums.Length];
+        int[] array = [4, 1, 123, 9, 12, 34, -1,-9999999,9123123];
 
-        for (int i = 0; i < nums.Length; i++)
+        int? FindLargest(int[] array)
         {
-            int total = 0;
-            str[i] = nums[i].ToString();
-            foreach (char c in str[i])
+            if (array.Length > 0)
             {
-                total += int.Parse(c.ToString());
+                int largest = array[0];
+                for (int i = 1; i < array.Length; i++)
+                {
+                    if (array[i] > largest)
+                        largest = array[i];
+                }
+                return largest;
             }
-            totals[i] = total;
+            else
+                return null;
         }
-        int[] totalsClone = (int[])totals.Clone();
-        Array.Sort(totals);
-
-        return 0;
+        Console.WriteLine(FindLargest(array));
     }
 }
+
