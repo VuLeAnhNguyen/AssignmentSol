@@ -1,56 +1,31 @@
-﻿//Define an interface
-public interface Geometry
-{
-    double Perimeter();//Chu vi
-    double Area();
-}
-//
-public class Circle : Geometry
-{
-    double radius;
-    public Circle(double _radius)
-    {
-        radius = _radius;
-    }
-    public double Perimeter()
-    {
-        return radius * 2 * Math.PI;
-    }
-    public double Area()
-    {
-        return radius * radius * Math.PI;
-    }
-}
-
-public class Triangle : Geometry
-{
-    double a, b, c;
-    public Triangle(double _a, double _b, double _c)
-    {
-        a = _a;
-        b = _b;
-        c = _c;
-    }
-    public double Perimeter()
-    {
-        return a + b + c;
-    }
-    public double Area()
-    {
-        double semiPerimeter = Perimeter() / 2;
-        return Math.Sqrt(semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c));
-
-    }
-}
-class Program
+﻿class Program
 {
     static void Main()
     {
-        Triangle tamgiac1 = new Triangle(2, 4, 5.3);
-        Console.WriteLine(tamgiac1.Area());
-        Console.WriteLine(tamgiac1.Perimeter());
+        int l = 34;
+
+        int[][] arbitraryArray = new int[l][];
+        for (int i = 0; i < l; i++)
+        {
+            arbitraryArray[i] = new int[i + 1];
+        }
+
+        //
+
+        for (int r = 0; r < l; r++)
+        {
+            for (int c = 0; c < arbitraryArray[r].Length; c++)
+            {
+                if ((c == 0) || (c == arbitraryArray[r].Length - 1))
+                    arbitraryArray[r][c] = 1;
+                else
+                {
+                    arbitraryArray[r][c] = arbitraryArray[r - 1][c] + arbitraryArray[r - 1][c - 1];
+                }
+                Console.Write(arbitraryArray[r][c] + " ");
+            }
+            Console.WriteLine();
+        }
+
     }
 }
-
-
-    
