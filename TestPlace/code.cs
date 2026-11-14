@@ -9,21 +9,88 @@
 // và mã môn học.
 class Program
 {
+    class Course
+    {
+        public string CourseId { get; set; }
+        public string CourseName { get; set; }
+        public string CourseCredit { get; set; }
+        public string CourseGrade { get; set; }
+        public Course(string _courseId, string _courseName, string _courseCredit, string? _courseGrade)
+        {
+            CourseId = _courseId;
+            CourseName = _courseName;
+            CourseCredit = _courseCredit;
+            CourseGrade = _courseGrade;
+        }
+    }
+    class School
+    {
+        public List<Student> StudentList { get; set; }
+        public string StudentCourseGrade(string _studentId, string _courseId)
+        {
+            foreach (Student sdentu in StudentList)
+            {
+                if (sdentu.StudentId == _studentId)
+                    foreach (Course course in sdentu.StudentCoursesInfo)
+                    {
+                        if (course.CourseId == _courseId)
+                            return course.CourseGrade;
+                    }
+            }
+            return "sdasdasd";
+        }
+        public School()
+        {
+            StudentList = new();
+        }
+    }
     class Student
     {
-        public List<string> StudentInfo { get; set; }
-        public Student(string _courseId, string _courseName, string _courseCredit, string _courseGrade)
+        public string StudentId { get; set; }
+        public List<Course?> StudentCoursesInfo { get; set; }
+        public void AddNewCourse(string _courseId, string _courseName, string _courseCredit, string? _courseGrade )
         {
-            StudentInfo = new List<string> {_courseId, _courseName, _courseCredit, _courseGrade};
+            Course newCourse = new(_courseId, _courseName, _courseCredit, _courseGrade);
+            StudentCoursesInfo.Add(newCourse);
+        }
+        public void RemoveCourseGrade(string _courseId)
+        {
+            foreach (Course item in StudentCoursesInfo)
+            {
+                if (item?.CourseId == _courseId)
+                    item.CourseGrade = null;
+            }
+        }
+        public Student(string _studentId)
+        {
+            StudentCoursesInfo = new();
+            StudentId = _studentId;
         }
     }
     static void Main()
     {
-        Student anhDudu = new Student("12", "DSA", "3", "9");
-        foreach (var item in anhDudu.StudentInfo)
-        {
-            Console.WriteLine(item);
-        }
+
+        Student anhDudu = new Student("1");
+        anhDudu.AddNewCourse("111", "as", "3", "9");
+
+        Student anhDudasdu = new Student("2");
+        anhDudasdu.AddNewCourse("112", "DSA", "3", "6");
+
+        Student anhasDudu = new Student("3");
+        anhasDudu.AddNewCourse("113", "DSA", "3", "99");
+
+        Student anhDfasudu = new Student("4");
+        anhDfasudu.AddNewCourse("114", "DSA", "3", "2");
+
+
+        School havet = new();
+        havet.StudentList.Add(anhDudu);
+        havet.StudentList.Add(anhDudasdu);
+        havet.StudentList.Add(anhasDudu);
+        havet.StudentList.Add(anhDfasudu);
+
+
+        Console.WriteLine(havet.StudentCourseGrade("3", "113"));
     }
 }
 
