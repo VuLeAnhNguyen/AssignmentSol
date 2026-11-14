@@ -1,31 +1,29 @@
-﻿class Program
+﻿// 1. Viết lớp về sinh viên và có lưu trong đó danh sách gồm mã môn học,
+// tên môn, số tín chỉ cùng với điểm đạt được của môn đó.
+// 2. Viết thêm các phương thức cho lớp sinh viên để thêm mới điểm của
+// 1 môn học (gồm mã môn, tên môn, số tín chỉ và điểm).
+// 3. Viết thêm phương thức xóa điểm của lớp sinh viên, chỉ cần mã môn.
+// 4. Thay đổi lớp sinh viên trên bằng cách tạo thêm 1 lớp định nghĩa
+// môn học và làm lại với câu 1,2,3.
+// 5. Xây dựng phương thức tìm kiếm điểm theo đầu vào là mã sinh viên
+// và mã môn học.
+class Program
 {
+    class Student
+    {
+        public List<string> StudentInfo { get; set; }
+        public Student(string _courseId, string _courseName, string _courseCredit, string _courseGrade)
+        {
+            StudentInfo = new List<string> {_courseId, _courseName, _courseCredit, _courseGrade};
+        }
+    }
     static void Main()
     {
-        int l = 34;
-
-        int[][] arbitraryArray = new int[l][];
-        for (int i = 0; i < l; i++)
+        Student anhDudu = new Student("12", "DSA", "3", "9");
+        foreach (var item in anhDudu.StudentInfo)
         {
-            arbitraryArray[i] = new int[i + 1];
+            Console.WriteLine(item);
         }
-
-        //
-
-        for (int r = 0; r < l; r++)
-        {
-            for (int c = 0; c < arbitraryArray[r].Length; c++)
-            {
-                if ((c == 0) || (c == arbitraryArray[r].Length - 1))
-                    arbitraryArray[r][c] = 1;
-                else
-                {
-                    arbitraryArray[r][c] = arbitraryArray[r - 1][c] + arbitraryArray[r - 1][c - 1];
-                }
-                Console.Write(arbitraryArray[r][c] + " ");
-            }
-            Console.WriteLine();
-        }
-
     }
 }
+
