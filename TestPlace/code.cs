@@ -6,10 +6,17 @@ class Program
     public static double[] BucketSort(double[] a, int k)
     {
         if (a.Length <= 1)
+<<<<<<< HEAD
             return (double[])a.Clone();
         double min = a.Min(), max = a.Max();
         if (min == max)
             return (double[])a.Clone();
+=======
+            return a;
+        double min = a.Min(), max = a.Max();
+        if (min == max)
+            return a;
+>>>>>>> 3fe455795a9b978ac9bb5fdbf5b2a166b6ca3628
 
         List<double>[] bucket = new List<double>[k];
         for (int i = 0; i < k; i++)
@@ -35,7 +42,7 @@ class Program
     static void Main()
     {
         double[] arr = { 8.5, 6.2, 9.1, 4.5, 7.8, 5.3, 8.9, 3.2, 6.8, 9.5, 7.1, 4.8, 5.9 };
-        foreach( var x in BucketSort(arr, 10)) //monitoringl
+        foreach( var x in BucketSort(arr, 10)) //monitoring
         {
             Console.Write(x+" ");
         }
