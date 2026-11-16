@@ -35,7 +35,7 @@ class Program
     static void Main()
     {
         double[] arr = { 8.5, 6.2, 9.1, 4.5, 7.8, 5.3, 8.9, 3.2, 6.8, 9.5, 7.1, 4.8, 5.9 };
-        foreach( var x in BucketSort(arr, 10))
+        foreach( var x in BucketSort(arr, 10)) //Monitoring
         {
             Console.Write(x+" ");
         }
