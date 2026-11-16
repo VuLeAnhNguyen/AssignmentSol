@@ -1,96 +1,43 @@
-﻿// 1. Viết lớp về sinh viên và có lưu trong đó danh sách gồm mã môn học,
-// tên môn, số tín chỉ cùng với điểm đạt được của môn đó.
-// 2. Viết thêm các phương thức cho lớp sinh viên để thêm mới điểm của
-// 1 môn học (gồm mã môn, tên môn, số tín chỉ và điểm).
-// 3. Viết thêm phương thức xóa điểm của lớp sinh viên, chỉ cần mã môn.
-// 4. Thay đổi lớp sinh viên trên bằng cách tạo thêm 1 lớp định nghĩa
-// môn học và làm lại với câu 1,2,3.
-// 5. Xây dựng phương thức tìm kiếm điểm theo đầu vào là mã sinh viên
-// và mã môn học.
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 class Program
 {
-    class Course
+    public static double[] BucketSort(double[] a, int k)
     {
-        public string CourseId { get; set; }
-        public string CourseName { get; set; }
-        public string CourseCredit { get; set; }
-        public string CourseGrade { get; set; }
-        public Course(string _courseId, string _courseName, string _courseCredit, string? _courseGrade)
+        if (a.Length <= 1)
+            return (double[])a.Clone();
+        double min = a.Min(), max = a.Max();
+        if (min == max)
+            return (double[])a.Clone();
+
+        List<double>[] bucket = new List<double>[k];
+        for (int i = 0; i < k; i++)
+            bucket[i] = new List<double>();
+
+        //work
+        foreach (var x in a)
         {
-            CourseId = _courseId;
-            CourseName = _courseName;
-            CourseCredit = _courseCredit;
-            CourseGrade = _courseGrade;
+            int index = (int)((x - min) / (max - min) * k);
+            if (index == k) //array max k-1;
+                index--;
+            bucket[index].Add(x);
         }
-    }
-    class School
-    {
-        public List<Student> StudentList { get; set; }
-        public string StudentCourseGrade(string _studentId, string _courseId)
+        List<double> R = new List<double>();
+        foreach (var b in bucket)
         {
-            foreach (Student sdentu in StudentList)
-            {
-                if (sdentu.StudentId == _studentId)
-                    foreach (Course course in sdentu.StudentCoursesInfo)
-                    {
-                        if (course.CourseId == _courseId)
-                            return course.CourseGrade;
-                    }
-            }
-            return "sdasdasd";
+            b.Sort();
+            foreach (var x in b)
+                R.Add(x);
         }
-        public School()
-        {
-            StudentList = new();
-        }
-    }
-    class Student
-    {
-        public string StudentId { get; set; }
-        public List<Course?> StudentCoursesInfo { get; set; }
-        public void AddNewCourse(string _courseId, string _courseName, string _courseCredit, string? _courseGrade )
-        {
-            Course newCourse = new(_courseId, _courseName, _courseCredit, _courseGrade);
-            StudentCoursesInfo.Add(newCourse);
-        }
-        public void RemoveCourseGrade(string _courseId)
-        {
-            foreach (Course item in StudentCoursesInfo)
-            {
-                if (item?.CourseId == _courseId)
-                    item.CourseGrade = null;
-            }
-        }
-        public Student(string _studentId)
-        {
-            StudentCoursesInfo = new();
-            StudentId = _studentId;
-        }
+        return R.ToArray();
     }
     static void Main()
     {
-
-        Student anhDudu = new Student("1");
-        anhDudu.AddNewCourse("111", "as", "3", "9");
-
-        Student anhDudasdu = new Student("2");
-        anhDudasdu.AddNewCourse("112", "DSA", "3", "6");
-
-        Student anhasDudu = new Student("3");
-        anhasDudu.AddNewCourse("113", "DSA", "3", "99");
-
-        Student anhDfasudu = new Student("4");
-        anhDfasudu.AddNewCourse("114", "DSA", "3", "2");
-
-
-        School havet = new();
-        havet.StudentList.Add(anhDudu);
-        havet.StudentList.Add(anhDudasdu);
-        havet.StudentList.Add(anhasDudu);
-        havet.StudentList.Add(anhDfasudu);
-
-
-        Console.WriteLine(havet.StudentCourseGrade("3", "113"));
+        double[] arr = { 8.5, 6.2, 9.1, 4.5, 7.8, 5.3, 8.9, 3.2, 6.8, 9.5, 7.1, 4.8, 5.9 };
+        foreach( var x in BucketSort(arr, 10)) //monitoring
+        {
+            Console.Write(x+" ");
+        }
     }
 }
-
