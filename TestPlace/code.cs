@@ -1,95 +1,83 @@
-﻿// 1. Viết lớp về sinh viên và có lưu trong đó danh sách gồm mã môn học,
-// tên môn, số tín chỉ cùng với điểm đạt được của môn đó.
-// 2. Viết thêm các phương thức cho lớp sinh viên để thêm mới điểm của
-// 1 môn học (gồm mã môn, tên môn, số tín chỉ và điểm).
-// 3. Viết thêm phương thức xóa điểm của lớp sinh viên, chỉ cần mã môn.
-// 4. Thay đổi lớp sinh viên trên bằng cách tạo thêm 1 lớp định nghĩa
-// môn học và làm lại với câu 1,2,3.
-// 5. Xây dựng phương thức tìm kiếm điểm theo đầu vào là mã sinh viên
-// và mã môn học.
+﻿using System.Collections.Generic;
 class Program
 {
-    class Course
+    public class Node
     {
-        public string CourseId { get; set; }
-        public string CourseName { get; set; }
-        public string CourseCredit { get; set; }
-        public string CourseGrade { get; set; }
-        public Course(string _courseId, string _courseName, string _courseCredit, string? _courseGrade)
+        public int Value;
+        public Node? Parent = null;
+        public Node? Lchild = null;
+        public Node? Rchild = null;
+        public Node(int _value)
         {
-            CourseId = _courseId;
-            CourseName = _courseName;
-            CourseCredit = _courseCredit;
-            CourseGrade = _courseGrade;
+            Value = _value;
+        }
+        public Node(int _value, Node _parent)
+        {
+            Value = _value;
+            Parent = _parent;
+        }
+        public void Print()
+        {
+            Console.Write("\t" + Value);
         }
     }
-    class School
+    public static void PreorderTraversal(Node? root)
     {
-        public List<Student> StudentList { get; set; }
-        public string StudentCourseGrade(string _studentId, string _courseId)
+        if (root == null) return;
+        root.Print();
+        PreorderTraversal(root.Lchild);
+        PreorderTraversal(root.Rchild);
+    }
+    public static void InorderTraversal(Node? root)
+    {
+        if (root == null) return;
+        InorderTraversal(root.Lchild);
+        root.Print();
+        InorderTraversal(root.Rchild);
+    }
+    public static void PostorderTraversal(Node? root)
+    {
+        if (root == null) return;
+        PostorderTraversal(root.Lchild);
+        PostorderTraversal(root.Rchild);
+        root.Print();
+    }
+    public Node? BinaryTree(int[] array)
+    {
+        if (array.Length < 1) return null;
+        Node root = new(array[0]);
+
+        for (int i = 1; i < array.Length; i++)
         {
-            foreach (Student sdentu in StudentList)
+            Node current = root;
+            while (true)
             {
-                if (sdentu.StudentId == _studentId)
-                    foreach (Course course in sdentu.StudentCoursesInfo)
+                if (array[i] < current.Value)
+                {
+                    if (current.Lchild == null)
                     {
-                        if (course.CourseId == _courseId)
-                            return course.CourseGrade;
+                        current.Lchild = new Node(array[i], current);
+                        break;
                     }
-            }
-            return "sdasdasd";
-        }
-        public School()
-        {
-            StudentList = new();
-        }
-    }
-    class Student
-    {
-        public string StudentId { get; set; }
-        public List<Course?> StudentCoursesInfo { get; set; }
-        public void AddNewCourse(string _courseId, string _courseName, string _courseCredit, string? _courseGrade )
-        {
-            Course newCourse = new(_courseId, _courseName, _courseCredit, _courseGrade);
-            StudentCoursesInfo.Add(newCourse);
-        }
-        public void RemoveCourseGrade(string _courseId)
-        {
-            foreach (Course item in StudentCoursesInfo)
-            {
-                if (item?.CourseId == _courseId)
-                    item.CourseGrade = null;
+                    else
+                        current = current.Lchild;
+                }
+                else
+                {
+                    if (current.Rchild == null)
+                    {
+                        current.Rchild = new Node(array[i], current);
+                        break;
+                    }
+                    else
+                        current = current.Rchild;
+                }
             }
         }
-        public Student(string _studentId)
-        {
-            StudentCoursesInfo = new();
-            StudentId = _studentId;
-        }
+        return root;
     }
     static void Main()
     {
 
-        Student anhDudu = new Student("1");
-        anhDudu.AddNewCourse("111", "as", "3", "9");
-
-        Student anhDudasdu = new Student("2");
-        anhDudasdu.AddNewCourse("112", "DSA", "3", "6");
-
-        Student anhasDudu = new Student("3");
-        anhasDudu.AddNewCourse("113", "DSA", "3", "99");
-
-        Student anhDfasudu = new Student("4");
-        anhDfasudu.AddNewCourse("114", "DSA", "3", "2");
-
-
-        School havet = new();
-        havet.StudentList.Add(anhDudu);
-        havet.StudentList.Add(anhDudasdu);
-        havet.StudentList.Add(anhasDudu);
-        havet.StudentList.Add(anhDfasudu);
-
-
-        Console.WriteLine(havet.StudentCourseGrade("3", "113"));
     }
 }
