@@ -1,83 +1,52 @@
-﻿using System.Collections.Generic;
-class Program
+﻿class Program_z
 {
-    public class Node
+    public static void RadixSort(int[] array)
     {
-        public int Value;
-        public Node? Parent = null;
-        public Node? Lchild = null;
-        public Node? Rchild = null;
-        public Node(int _value)
+        //assuming array is alway right
+        Queue<int>[] digitContainer = new Queue<int>[10];
+        for (int i = 0; i < 10; i++)
         {
-            Value = _value;
+            digitContainer[i] = new Queue<int>();
         }
-        public Node(int _value, Node _parent)
+        int placeLevel = 1;
+        int maxStep = 1;
+        while (placeLevel <= maxStep)
         {
-            Value = _value;
-            Parent = _parent;
-        }
-        public void Print()
-        {
-            Console.Write("\t" + Value);
-        }
-    }
-    public static void PreorderTraversal(Node? root)
-    {
-        if (root == null) return;
-        root.Print();
-        PreorderTraversal(root.Lchild);
-        PreorderTraversal(root.Rchild);
-    }
-    public static void InorderTraversal(Node? root)
-    {
-        if (root == null) return;
-        InorderTraversal(root.Lchild);
-        root.Print();
-        InorderTraversal(root.Rchild);
-    }
-    public static void PostorderTraversal(Node? root)
-    {
-        if (root == null) return;
-        PostorderTraversal(root.Lchild);
-        PostorderTraversal(root.Rchild);
-        root.Print();
-    }
-    public Node? BinaryTree(int[] array)
-    {
-        if (array.Length < 1) return null;
-        Node root = new(array[0]);
-
-        for (int i = 1; i < array.Length; i++)
-        {
-            Node current = root;
-            while (true)
+            foreach (var item in array)
             {
-                if (array[i] < current.Value)
+                if (placeLevel == 1)
                 {
-                    if (current.Lchild == null)
+                    int countDigit = item.ToString().Length;
+                    if (countDigit > maxStep)
                     {
-                        current.Lchild = new Node(array[i], current);
-                        break;
+                        maxStep = countDigit;
                     }
-                    else
-                        current = current.Lchild;
                 }
-                else
+
+                int digit = (int)(item % Math.Pow(10, placeLevel) / Math.Pow(10, placeLevel-1));
+                digitContainer[digit].Enqueue(item);
+            }
+
+            int temp = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                while (digitContainer[i].Count >0)
                 {
-                    if (current.Rchild == null)
-                    {
-                        current.Rchild = new Node(array[i], current);
-                        break;
-                    }
-                    else
-                        current = current.Rchild;
+                    array[temp] = digitContainer[i].Dequeue();
+                    temp++;
                 }
             }
+            placeLevel++;
+
         }
-        return root;
     }
     static void Main()
     {
-
+        int[] array = { 242, 110, 2337, 36, 4, 21230, 117, 0 };
+        RadixSort(array);
+        foreach (var item in array)
+        {
+            Console.WriteLine(item + " ");
+        }
     }
 }
